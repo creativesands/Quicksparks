@@ -10,7 +10,7 @@
     Web Fonts
     ========================================================================== */
 
-@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,400italic);
+/*@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,400italic);*/
 
 
 /* ==========================================================================
@@ -25,13 +25,13 @@ button,
 input,
 select,
 textarea {
-    color: #222;
+    color: #142E42;
 }
 
 html {
     font-size: 1em;
     line-height: 1.4;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'museo_sans', sans-serif;
     box-sizing: border-box;
 }
 
@@ -94,6 +94,169 @@ textarea {
     resize: vertical;
 }
 
+/*
+ * Base typography
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'museo_slab', sans-serif;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 24px;
+    margin: 1em 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+    line-height: normal;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   12 GRID Layout
+   ========================================================================== */
+
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col { 
+        margin: 1% 0 1% 0%;
+    }
+}
+
+.span_12_of_12 {
+    width: 100%;
+}
+
+.span_11_of_12 {
+    width: 91.53%;
+}
+
+.span_10_of_12 {
+    width: 83.06%;
+}
+
+.span_9_of_12 {
+    width: 74.6%;
+}
+
+.span_8_of_12 {
+    width: 66.13%;
+}
+
+.span_7_of_12 {
+    width: 57.66%; 
+}
+
+.span_6_of_12 {
+    width: 49.2%; 
+}
+
+.span_5_of_12 {
+    width: 40.73%; 
+}
+
+.span_4_of_12 {
+    width: 32.26%; 
+}
+
+.span_3_of_12 {
+    width: 23.8%;
+}
+
+.span_2_of_12 {
+    width: 15.33%; 
+}
+
+.span_1_of_12 {
+    width: 6.86%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .span_12_of_12 {
+        width: 100%; 
+    }
+    .span_11_of_12 {
+        width: 100%; 
+    }
+    .span_10_of_12 {
+        width: 100%; 
+    }
+    .span_9_of_12 {
+        width: 100%; 
+    }
+    .span_8_of_12 {
+        width: 100%; 
+    }
+    .span_7_of_12 {
+        width: 100%; 
+    }
+    .span_6_of_12 {
+        width: 100%; 
+    }
+    .span_5_of_12 {
+        width: 100%; 
+    }
+    .span_4_of_12 {
+        width: 100%; 
+    }
+    .span_3_of_12 {
+        width: 100%; 
+    }
+    .span_2_of_12 {
+        width: 100%; 
+    }
+    .span_1_of_12 {
+        width: 100%; 
+    }
+}
+
+
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -111,31 +274,61 @@ textarea {
 
 @-webkit-keyframes "breathe-size" {
  0% {
-    opacity: 0;
+    opacity: 0.25;
  }
  50% {
    -webkit-transform: scale(1.5);
    transform: scale(1.5);
-    opacity: 1;
+    opacity: 0.5;
  }
  100% {
-    opacity: 0;
+    opacity: 0.25;
  }
 }
 
-@-webkit-keyframes "breathe-color" {
+@keyframes "breathe-size" {
+ 0% {
+    opacity: 0.25;
+ }
  50% {
-   background: url("../img/noise.png") , -webkit-radial-gradient(top center, #10668F , #10668F 750px);
+   -moz-transform: scale(1.5);
+   transform: scale(1.5);
+   opacity: 0.5;
  }
+ 100% {
+    opacity: 0.25;
+ }
+}
 
- 75% {
-    background: url("../img/noise.png") , -webkit-radial-gradient(top center, #FFF , #10668F 750px);
- }
+@-webkit-keyframes "spin" {
+    from {
+        -webkit-transform: rotate(0deg);
+        -webkit-transform: scale(2);
+    } to { 
+        -webkit-transform: rotate(180deg);
+    }
+}
+
+@keyframes "spin" {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -ms-transform: scale(2);
+    } to { 
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+    }
 }
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
 .container {
     max-width: 1200px;
     width: 80%;
@@ -153,19 +346,53 @@ textarea {
 .section {
     padding: 6em 0;
     position: relative;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5em;
 }
 
+#nav-bar {
+    padding: 0;
+    background: #1A2E40 url("../img/noise.png");  
+    position: fixed;
+    z-index: 1000;
+    font-family: 'museo_slab', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: 100%;
+    top: 0;
+}
+
+#nav-bar ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#nav-bar ul li {
+    display: inline-block;
+}
+
+#nav-bar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
 #titleTop {
-    background: url("../img/noise.png") , -webkit-radial-gradient(top center, #AAE5FC , #10668F 750px);
-    background: url("../img/noise.png") , -moz-radial-gradient(top center, #AAE5FC , #10668F 750px);
-    background: url("../img/noise.png") , -ms-radial-gradient(top center, #AAE5FC , #10668F 750px);
-    background: url("../img/noise.png") , -o-radial-gradient(top center, #AAE5FC , #10668F 750px);
-    background: url("../img/noise.png") , radial-gradient(top center, #AAE5FC , #10668F 750px);
+    background: url("../img/noise.png") , -webkit-radial-gradient(top center, #AAE5FC , #105C8F 750px);
+    background: url("../img/noise.png") , -moz-radial-gradient(top center, #AAE5FC , #105C8F 750px);
+    background: url("../img/noise.png") , -ms-radial-gradient(top center, #AAE5FC , #105C8F 750px);
+    background: url("../img/noise.png") , -o-radial-gradient(top center, #AAE5FC , #105C8F 750px);
+    background: url("../img/noise.png") , radial-gradient(top center, #AAE5FC , #105C8F 750px);
     text-align: center;
     padding-bottom: 3em;
+    padding-top: 3em;
     position: relative;
+    margin-top: 45px;
 }
 
 .logoContainer {
@@ -181,6 +408,21 @@ textarea {
 
 #titleTop .logoContainer .logo.glow {
     -webkit-animation: breathe-size 3s infinite;
+    animation: breathe-size 3s infinite;
+}
+
+#titleTop .logoContainer .logo.light {
+    -webkit-animation-name: spin; 
+    -webkit-animation-duration: 120s; 
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-transform: scale(2);
+
+    animation-name: spin; 
+    animation-duration: 120s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform: scale(2);
 }
 
 #titleTop .logoContainer .logo {
@@ -197,30 +439,30 @@ textarea {
 
 #titleTop .banner .logo-text {
     width: 200px;
-    
     height: auto;
     padding: 2em 0 1em;
 }
 
 .section .container > ul > li {
-    list-style: none;
+    list-style: inherit;
     margin: 12px 0;
 }
 
+
+
 /*Section 1 begins*/
 .section.section1 {
-    background: #E84248 url("../img/noise.png");
+    background: #112536 url("../img/noise.png");
     text-align: center;
-    padding-bottom: 8em;
-    padding-top: 7em;
+    padding-bottom: 3em;
 }
 .section.section1 h3.sub-title {
     color: rgb(255, 255, 255);
-    margin: 0 0 2.9em 0;
-    font-size: 1.5em;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
-    font-weight: normal;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 1em 0;
+    text-transform: capitalize;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.53);
 }
 .section.section1 .banner {
     bottom: -50px;
@@ -231,94 +473,240 @@ textarea {
 }
 
 
+
 /*Section 2 begins*/
 .section.section2 {
-    background: #8DD4DA url("../img/noise.png");
-    padding-top: 7em;
+    background: white;
+    color: #142E42;
+}
+
+.section.section2 h2 {
     text-align: center;
-    padding-bottom: 7em;
 }
 
-.section.section2 .question img {
-    width: 200px;
-    height: auto;
-    padding: 15px 0;
-}
 
-.section.section2 .question {
-    max-width: 300px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.34);
-    padding: 15px;
-    min-height: 25em;
-    display: inline-table;
-    margin: 8px 6px;
-    font-size: 14px;
-}
-
-.section.section2 .banner {
-    bottom: -88px;
-    background: url("../img/read-on.png") no-repeat center 0;
-    color: #E7F3F5;
-    padding: 15px 0 0 0;
-    margin: 0 auto;
-    height: 6em;
-    font-size: 1.5em;
-    text-shadow: 1px 1px 1px black;
-}
 
 /*Section 3 begins*/
 .section.section3 {
-    background: #E84248 url("../img/noise.png");
-    padding-top: 8em;
-    padding-bottom: 8em;
+    background: #BCD3A5 url("../img/noise.png");
+    color: #142E42;
+    position: relative;
 }
 
-.section.section3 .container,
-.section.section4 .container,
-.section.section5 .container,
-.section.section6 .container {
-    background: white;
-    padding: 1em 2.5em;
-    color: #363636;
+.section.section3 .container {
+    position: relative;
 }
 
-.section.section3 .creativeBrain {
-    margin: 0 auto -50px;
-    width: 40%;
+.section.section3 .questions-bg {
+    top: -6em;
+    right: 0;
+}
+
+.section.section3 .questions-bg img {
+    position: absolute;
+
+    right: 0;
+    width: 100%;
+}
+
+.section.section3 table tr:hover td.pro-child {
+    left: -5%;
+}
+
+.section.section3 table tr:hover td.question span {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+
+.section.section3 table td {
+    padding: 1em 0;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    position: relative;
+}
+
+.section.section3 table img.pro-child {
+    width: 100%;
+    max-width: 135px;
+}
+
+.section.section3 table td.question span {
+    font-family: 'museo_slab';
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
     display: block;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
 }
 
-.section.section3 .banner {
-    bottom: -80px;
-    background: rgb(255, 255, 255);
-    color: #555;
-    padding: 0 1em;
-    margin: 0 auto;
-    text-align: center;
-    margin-left: -2.5em;
-}
+
 
 /*Section 4 begins*/
 .section.section4 {
-    background: #8DD4DA url("../img/noise.png");
-    padding-top: 10em;
+    color: #142E42;
+    padding-bottom: 0;
 }
+
+.section.section4 .image-group {
+    position: relative;
+    text-align: center;
+    padding-top: 2em;
+}
+
+
+.section.section4 .image-group .brain {
+    width: 50%;
+    max-width: 350px;
+    z-index: -1;
+}
+
+.section.section4 .image-group .img-shadow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.section.section4 .quote {
+    padding: 2em 0;
+    background: white;
+}
+
+.section.section4 .quote p {
+    
+}
+
 
 /*Section 5 begins*/
-.section.section5 {
-    background: #E84248 url("../img/noise.png");
+.section.content {
+    padding: 1em 0 3em;
 }
+
+.section.content h3 {
+    margin-bottom: 0;
+}
+
+.section.content li {
+    margin: 12px 0;
+}
+
+.section.section5.title {
+    background: #EEB72A url("../img/noise.png");
+    padding: 3em 0 1em;
+    color: white;
+}
+
+
 
 /*Section 6 begins*/
-.section.section6 {
-    background: #8DD4DA url("../img/noise.png");
+.section.section6.title {
+    background: #C94337 url("../img/noise.png");
+    padding: 3em 0 1em;
+    color: white;
 }
+
+
 
 /*Section 7 begins*/
-.section.section7 {
+.section.section7.title {
+    background: #4E8FB8 url("../img/noise.png");
+    padding: 3em 0 1em;
+    color: white;
 }
 
+
+
+/*Section 8 begins*/
+.section.section8 {
+    background: #CC701B url("../img/noise.png");
+    padding: 3em 0;
+}
+
+.section.section8 .container {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2em;
+}
+
+.section.section8 #quick-contact-form {
+    width: 100%;
+}
+
+.section.section8 #quick-contact-form input,
+.section.section8 #quick-contact-form textarea {
+    width: 100%;
+    margin: 0 0 1em;
+    min-width: 300px;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 163, 0, 0.63);
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.71);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.29);
+    font-family: 'museo_slab', sans-serif;
+    font-size: 14px;
+}
+
+::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.71);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255, 255, 255, 0.71);  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255, 255, 255, 0.71);  
+}
+
+:-ms-input-placeholder {  
+   color: rgba(255, 255, 255, 0.71);
+}
+
+.section.section8 #quick-contact-form textarea {
+    margin-bottom: 1em;
+    min-height: 6em;
+    min-width: 300px;
+}
+
+.section.section8 #quick-contact-form button {  
+    background: rgba(255, 163, 0, 1);
+    border: 1px solid rgba(255, 194, 0, 1);
+    padding: 10px;
+    color: rgba(0, 0, 0, 1);
+    box-shadow: 0 3px 0px  rgba(68, 45, 20, 1);
+    border-radius: 2px;
+    font-family: 'museo_slab', sans-serif;  font-size: 14px;
+    font-weight: 700;
+}
+
+.section.section8 #quick-contact-form-result {
+    color: rgb(44, 21, 5);
+}
+
+.section.section8 .contact-us {
+    color: rgb(44, 21, 5);
+}
+
+.section.section8 .contact-us a {
+    color: rgb(44, 21, 5);
+    text-decoration: none;
+}
+
+
+
+
+/*Section 8 begins*/
+.section.section9 {
+    padding: 5px;
+    background: #000000 url("../img/noise.png");
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-top: -1px;
+}
 
 
 
@@ -328,7 +716,47 @@ textarea {
 
 .size-x {
     font-size: 1.75em;  
-    line-height: 1.75em;
+    line-height: 1.5em;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+img.auto {
+    width: auto;
+    height: auto;
+}
+
+@media only screen and (max-width: 940px) {
+    img.auto {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.section .para-section {
+    margin-top: 1em;
+}
+
+.section .para-section:first-child {
+    margin-top: 0; 
+} 
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .no-margin-top {
